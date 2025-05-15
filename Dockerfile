@@ -20,4 +20,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 WORKDIR /app/files
 
 # 设置默认命令(运行所有脚本)
-CMD ["sh", "-c", "python script1.py > output1.txt && python script2.py > output2.txt && python script3.py > output3.txt"]
+CMD ["sh", "-c", "python StepOne.py > output1.txt && python StepTwo.py > output2.txt && python StepThree.py > output3.txt"]
