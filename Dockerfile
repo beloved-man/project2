@@ -16,8 +16,14 @@ COPY requirements.txt /app/
 # 安装Python依赖
 RUN pip install --no-cache-dir -r requirements.txt
 
+
+apt update && apt install -y procps curl iproute2
+
+apt update && apt install -y lsb-release
+
+
 # 设置工作目录
 WORKDIR /app/files
 
 # 设置默认命令(运行所有脚本)
-CMD ["sh", "-c", "python StepOne.py > output1.txt && python StepTwo.py > output2.txt && python StepThree.py > output3.txt"]
+CMD ["sh", "-c", "bash StepOne.sh > output1.txt && python StepTwo.py > output2.txt && python StepThree.py > output3.txt"]
